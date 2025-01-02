@@ -12,16 +12,16 @@ export default class ButtonModule extends KtaneModule {
   constructor(props) {
     super(props);
 
-    this.colourBlue = "blue";
-    this.colourWhite = "white";
-    this.colourYellow = "yellow";
-    this.colourRed = "red";
+    this.colourBlue = "kék";
+    this.colourWhite = "fehér";
+    this.colourYellow = "sárga";
+    this.colourRed = "piros";
     this.allColours = [this.colourBlue, this.colourWhite, this.colourYellow, this.colourRed];
 
-    this.textAbort = "Abort";
-    this.textDetonate = "Detonate";
-    this.textHold = "Hold";
-    this.textPress = "Press";
+    this.textAbort = "Megszakítás";
+    this.textDetonate = "Felrobbantás";
+    this.textHold = "Tartsd";
+    this.textPress = "Nyomd";
     this.allText = [this.textAbort, this.textDetonate, this.textHold, this.textPress];
 
     this.setColour = this.setColour.bind(this);
@@ -30,12 +30,12 @@ export default class ButtonModule extends KtaneModule {
 
   getInstruction() {
     if (this.state.text === this.textDetonate) {
-      return <>If 2+ 🔋, press and release.<br />Otherwise, hold button.</>;
+      return <>Ha 2+ 🔋, nyomd meg és engedd el.<br />Egyébként tartsd lenyomva.</>;
     } else if (this.state.colour === this.colourWhite) {
       return <>
-        If <span className="litIndicator" title="Lit indicator">CAR</span>, hold button.<br />
-        Otherwise, if 3+ 🔋 and <span className="litIndicator" title="Lit indicator">FRK</span>, press and release.<br />
-        Otherwise, hold button.
+        Ha <span className="litIndicator" title="Lit indicator">CAR</span>, tartsd nyomva.<br />
+        Egyébként, ha 3+ 🔋 és <span className="litIndicator" title="Lit indicator">FRK</span>, nyomd meg és engedd el.<br />
+        Egyébként tartsd nyomva.
       </>;
     } else if ((this.state.colour === this.colourBlue && this.state.text === this.textAbort) || this.state.colour === this.colourYellow) {
       return "Hold button.";
@@ -43,8 +43,8 @@ export default class ButtonModule extends KtaneModule {
       return "Press and release.";
     } else {
       return <>
-        If 3+ 🔋 and <span className="litIndicator" title="Lit indicator">FRK</span>, press and release the button.
-        <br />Otherwise, hold button.
+        Ha 3+ 🔋 and <span className="litIndicator" title="Lit indicator">FRK</span>, nyomd meg és engedd el.
+        <br />Egyébként tartsd nyomva.
       </>;
     }
   }
@@ -89,11 +89,11 @@ export default class ButtonModule extends KtaneModule {
         <div className="instruction">{this.getInstruction()}</div>
 
         <div>
-          If holding button, release when the timer contains the digit that corresponds to the strip colour:
+          Ha nyomva tartod a gombot, engedd el amikor a számlálón van olyan szám, ami a színnek megfelel:
           <ul>
-            <li><span className="button blue">Blue</span>: &nbsp; 4</li>
-            <li><span className="button yellow">Yellow</span>: 5</li>
-            <li><span className="button">Other</span>: &nbsp;1</li>
+            <li><span className="button blue">Kék</span>: &nbsp; 4</li>
+            <li><span className="button yellow">Sárga</span>: 5</li>
+            <li><span className="button">Egyéb</span>: &nbsp;1</li>
           </ul>
         </div>
       </>
