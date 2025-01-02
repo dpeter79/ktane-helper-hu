@@ -1,6 +1,6 @@
 # ktane-helper
 
-https://dsinn.github.io/ktane-helper
+https://dpeter79.github.io/ktane-helper-hu/
 
 ## Local setup
 
